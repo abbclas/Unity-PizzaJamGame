@@ -5,10 +5,11 @@ using UnityEngine;
 public class WeaponsSO : ScriptableObject
 {
     public string _WeaponName;
+    public int _WeaponID;
     public float _Damage;
     public float _MaxDamage;
     public int _StackNum;
-    
+    //////////////////////////////
     public WeaponType Type;
 
     public enum WeaponType {
