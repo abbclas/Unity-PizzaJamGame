@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Weapon1
   m_EditorClassIdentifier: 
   _WeaponName: 
+  _WeaponID: 9890
   _Damage: 10
   _MaxDamage: 10
   _StackNum: 0
