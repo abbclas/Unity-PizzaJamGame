@@ -6,12 +6,12 @@ public class Pickup : MonoBehaviour
 {
     private Inventory inventory;
     [SerializeField] private GameObject objButton;
-
+    [SerializeField] private GameObject objButInst;
     private void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
-        Instantiate(objButton); 
-        objButton.SetActive(false);
+        objButInst = Instantiate(objButton); 
+        objButInst.SetActive(false);
     }
    void OnTriggerStay(Collider other)
    {
@@ -23,9 +23,9 @@ public class Pickup : MonoBehaviour
             {
                 if (inventory.isFull[i] == false)
                 {
-                    objButton.transform.position = inventory.slots[i].transform.position;
-                    objButton.SetActive(true);
-                    objButton.transform.SetParent(inventory.slots[i].transform);
+                    objButInst.transform.position = inventory.slots[i].transform.position;
+                    objButInst.SetActive(true);
+                    objButInst.transform.SetParent(inventory.slots[i].transform);
                     
                     Debug.Log("inst");
                     inventory.isFull[i] = true;
