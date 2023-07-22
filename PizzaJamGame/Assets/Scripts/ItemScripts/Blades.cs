@@ -17,8 +17,9 @@ public class Blades : MonoBehaviour
         
     }
     
-    private void OnTriggerCollider(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Hit");
         if(other.GetComponent<RogueRobotsManager>() && isAttacking)
         {
             other.GetComponent<RogueRobotsManager>().TakeDamage(BladeSO._Damage);
