@@ -8,9 +8,13 @@ public class WeaponsSO : ScriptableObject
     public int _WeaponID;
     public float _Damage;
     public float _MaxDamage;
+    public float? _AttackSpeed;
+    public float? _FireRate;
     public int _StackNum;
     //////////////////////////////
-    public WeaponType Type;
+    public WeaponType _Type;
+    
+    
 
     public enum WeaponType {
         Ranged,
