@@ -4,53 +4,64 @@ using UnityEngine;
 
 public class Attacking : MonoBehaviour
 {
-    public WeaponsSO weaponsSO;
-    public bool isAttacking;
-    // Start is called before the first frame update
-    private void MeleeOrRanged()
+    #region Singleton
+    private static Attacking _instance;
+    public static Attacking Istance
     {
-        switch(weaponsSO._Type)
+        get
         {
-            case WeaponsSO.WeaponType.Ranged:
-                AttackRanged();
-                break;
-            case WeaponsSO.WeaponType.Melee:
-                AttackMelee();
-                break;
+            if(_instance == null)
+            {
+                GameObject AMO = new GameObject("GameManager");
+                AMO.AddComponent<Attacking>();
+            }
+            return _instance;
         }
-    }
-    private void AttackMelee()
-    {
-        if(Input.GetMouseButtonDown(0))
-        {
-            
-            isAttacking = true;
-
-        }
-        if(Input.GetMouseButtonUp(0))
-        {
-            
-            isAttacking = false;
-        }
-    }
-    private void AttackRanged()
-    {
-        if(Input.GetMouseButtonDown(0))
-        {
-            
-            isAttacking = true;
-
-        }
-        if(Input.GetMouseButtonUp(0))
-        {
-            
-            isAttacking = false;
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
+    void Awake()
+    {
+        _instance = this;
+    }
+    #endregion
+    
+    public bool isAttacking;
+    
+    private float _Damage;
+    
+    
+    // Start is called before the first frame update
+    
+    public void AttackMelee(float AttackRotationAngle, GameObject Weapon)
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            //Do attack animation
+            Weapon.transform.eulerAngles += new Vector3(0 ,0, AttackRotationAngle);
+            isAttacking = true;
+
+        }
+        if(Input.GetMouseButtonUp(0))
+        {
+            Weapon.transform.eulerAngles -= new Vector3(0 ,0, AttackRotationAngle);
+            isAttacking = false;
+        }
+    }
+    public void AttackRanged()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            //Do attack animation
+
+            isAttacking = true;
+
+        }
+        if(Input.GetMouseButtonUp(0))
+        {
+            
+            isAttacking = false;
+        }
+    }
+
+    
 }
