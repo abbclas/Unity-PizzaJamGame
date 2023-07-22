@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72717bbc8e9c6c443928eee5276cf4ac, type: 3}
   m_Name: NormalRobot
   m_EditorClassIdentifier: 
-  HP: 0
-  MaxHP: 0
+  MaxHP: 100
+  isDead: 1
