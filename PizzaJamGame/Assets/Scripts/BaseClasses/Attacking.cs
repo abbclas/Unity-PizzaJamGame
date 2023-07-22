@@ -52,7 +52,7 @@ public class Attacking : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             //Do attack animation
-
+            //Do ranged attack
             isAttacking = true;
 
         }
