@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void MoveToPosition(Vector3 position)
     {
-        agent.SetDestination(position);
+        agent.destination = position;
     }
 
 

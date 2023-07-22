@@ -8,7 +8,6 @@ public class Blades : Attacking
     [SerializeField] private WeaponsSO BladeSO;
     [SerializeField] private float? SwingSpeed;
     [SerializeField] private float rotationAngle;
-    [SerializeField] private bool isAttacking;
     
     
     private void OnTriggerStay(Collider other)
