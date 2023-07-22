@@ -2,20 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Blades : MonoBehaviour
+public class Blades : Attacking
 {
-    
 
-    
-    
     [SerializeField] private WeaponsSO BladeSO;
     [SerializeField] private float? SwingSpeed;
     [SerializeField] private float rotationAngle;
     [SerializeField] private bool isAttacking;
-    private void Start()
-    {
-        
-    }
+    
     
     private void OnTriggerStay(Collider other)
     {
