@@ -5,4 +5,5 @@ using UnityEngine;
 public class EnemySO : ScriptableObject
 {
     public float MaxHP;
+    public bool isDead;
 }

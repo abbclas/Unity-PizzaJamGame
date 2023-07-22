@@ -17,11 +17,12 @@ public class Blades : MonoBehaviour
         
     }
     
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         Debug.Log("Hit");
         if(other.GetComponent<RogueRobotsManager>() && isAttacking)
         {
+            Debug.Log("Hit + damage");
             other.GetComponent<RogueRobotsManager>().TakeDamage(BladeSO._Damage);
         }
     }
