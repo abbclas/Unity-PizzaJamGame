@@ -11,6 +11,7 @@ public class Blades : MonoBehaviour
     [SerializeField] private WeaponsSO BladeSO;
     [SerializeField] private float? SwingSpeed;
     [SerializeField] private float rotationAngle;
+    [SerializeField] private bool isAttacking;
     private void Start()
     {
         
@@ -18,9 +19,9 @@ public class Blades : MonoBehaviour
     
     private void OnTriggerCollider(Collider other)
     {
-        if(other.GetComponent("CrazyRobotsManager"))
+        if(other.GetComponent<RogueRobotsManager>() && isAttacking)
         {
-            DamageEnemy(other.gameObject);
+            other.GetComponent<RogueRobotsManager>().TakeDamage(BladeSO._Damage);
         }
     }
 
@@ -32,18 +33,17 @@ public class Blades : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             transform.eulerAngles += new Vector3(0 ,0, rotationAngle);
-            
+            isAttacking = true;
+
         }
         if(Input.GetMouseButtonUp(0))
         {
             transform.eulerAngles -= new Vector3(0 ,0, rotationAngle);
+            isAttacking = false;
         }
 
     }
-    private void DamageEnemy(GameObject Enemy)
-    {
-        
-    }
+    
 
     void Update()
     {

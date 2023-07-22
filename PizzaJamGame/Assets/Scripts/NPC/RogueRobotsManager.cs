@@ -12,9 +12,9 @@ public class RogueRobotsManager : MonoBehaviour
         HP = enemySO.MaxHP;
     }
     
-    private void TakeDamage(float _damageAmount)
+    public void TakeDamage(float _damageAmount)
     {
-        this.HP -= _damageAmount;
+        HP -= _damageAmount;
     }
     // Update is called once per frame
     void Update()
