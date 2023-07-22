@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Blades : MonoBehaviour
 {
-    public delegate void TakeDamage(GameObject TakingDamage);
-    public static event TakeDamage takeDamage;
-    private TakeDamage takedDamage;
+    
+
+    
+    
     [SerializeField] private WeaponsSO BladeSO;
     [SerializeField] private float? SwingSpeed;
     [SerializeField] private float rotationAngle;
     private void Start()
     {
-        takedDamage = DamageEnemy;
+        
     }
     
     private void OnTriggerCollider(Collider other)
