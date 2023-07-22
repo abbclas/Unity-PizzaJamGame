@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class CrazyRobotsManager : MonoBehaviour
 {
-    [SerializeField] private EnemySO enemySO;
+    
+    [SerializeField]private EnemySO enemySO;
+    public float HP;
     void Awake()
     {
-        
+        HP = enemySO.MaxHP;
     }
-
+    
+    
     // Update is called once per frame
     void Update()
     {
