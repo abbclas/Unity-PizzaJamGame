@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CrazyRobotsManager : MonoBehaviour
 {
-    [SerializeField] private EnemySO enemy;
+    [SerializeField] private EnemySO enemySO;
     void Awake()
     {
         

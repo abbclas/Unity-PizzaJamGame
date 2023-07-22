@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "EnemySO", menuName = "ItemsSO/EnemySO")]
+[CreateAssetMenu(fileName = "EnemySO", menuName = "ScriptableObjects/EnemySO")]
 public class EnemySO : ScriptableObject
 {
-    [SerializeField] private float HP;
     [SerializeField] private float MaxHP;
 }
