@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -77,15 +78,17 @@ public class PlayerManager : MonoBehaviour
     }
     
     #region Existance
+    [SerializeField] private Slider sliderHP;
         public void CalcHP()
         {
             if(HP <= 0)
             {
 
                 HP = 0;
+                Destroy(sliderHP.transform.Find("Fill").gameObject);
                 Die();
             }
-                
+            sliderHP.value = HP/100;                
         }
         public void RecieveDamage(float _damageAmount)
         {

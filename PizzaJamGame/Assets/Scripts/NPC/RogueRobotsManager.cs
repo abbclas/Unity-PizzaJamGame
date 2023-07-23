@@ -9,6 +9,7 @@ public class RogueRobotsManager : MonoBehaviour
     public float HP;
     [SerializeField] private float timeToAttack;
     [SerializeField] private bool isHittingPlayer;
+    [SerializeField] private int enteredamount = 0;
 
     void Awake()
     {
@@ -43,10 +44,22 @@ public class RogueRobotsManager : MonoBehaviour
     #region DamageEnemy
     IEnumerator IAttacker()
     {
-        
-            yield return new WaitForSeconds(timeToAttack);
-            if(isHittingPlayer)
+            
+            
+            enteredamount ++;
+            if(enteredamount < 2)
+            {
+                yield return new WaitForSeconds(timeToAttack);
                 PlayerManager.Istance.RecieveDamage(enemySO.DamageDealAmount);
+                enteredamount --;
+            }
+                
+            else
+                enteredamount --;
+            
+                
+            
+                
             
     }
     IEnumerator IWaiter()
@@ -54,12 +67,11 @@ public class RogueRobotsManager : MonoBehaviour
         yield return new WaitForSeconds(timeToAttack);
     }
     
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if(other.CompareTag("Player"))
         {
             
-            isHittingPlayer = true;
             StartCoroutine(IAttacker());
         }
     }
@@ -67,8 +79,8 @@ public class RogueRobotsManager : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            
-            isHittingPlayer = false;
+            Debug.Log("exit");
+            StopCoroutine(IAttacker());
             
         }
     }

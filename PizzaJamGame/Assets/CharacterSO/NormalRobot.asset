@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHP: 100
   isDead: 1
+  DamageDealAmount: 5
