@@ -26,16 +26,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 559369709703746045}
-  m_LocalRotation: {x: 0, y: 0, z: 0.08119054, w: 0.9966986}
-  m_LocalPosition: {x: 0.37, y: 1.222, z: 0}
-  m_LocalScale: {x: 1.9558078, y: 1.9558078, z: 1.9558078}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6565732237208991231}
   - {fileID: 4278157511201065434}
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 9.314}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &7103967623193431645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba250fa1eecb9bb4093beb645e19629e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAttacking: 0
+  NumberOfEnemiesKilled: 0
   BladeSO: {fileID: 11400000, guid: 1996af7cb6706bf479f722a000bdf1b6, type: 2}
   rotationAngle: 45
   Inhand: 0

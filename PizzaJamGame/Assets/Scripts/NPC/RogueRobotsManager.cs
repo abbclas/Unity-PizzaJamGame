@@ -10,16 +10,20 @@ public class RogueRobotsManager : MonoBehaviour
     [SerializeField] private float timeToAttack;
     [SerializeField] private bool isHittingPlayer;
     [SerializeField] private int enteredamount = 0;
+    public bool isDead;
+
 
     void Awake()
     {
         HP = enemySO.MaxHP;
         isHittingPlayer = false;
+        isDead = false;
     }
     
     #region DamageAndLivingStatus
         public void TakeDamage(float _damageAmount)
         {
+            
             HP -= _damageAmount;
         }
         private void CalcHP()
@@ -27,18 +31,14 @@ public class RogueRobotsManager : MonoBehaviour
             if(HP <= 0)
             {
                 HP = 0;
-                enemySO.isDead = true;
+                
                 Dead();
             }
         }
-        private void Dead()
+        public void Dead()
         {
-            if(enemySO.isDead)
-            {
-                
-                this.gameObject.SetActive(false);
-                
-            }
+            PlayerManager.Istance.EnemyKilledNum ++;
+            this.gameObject.SetActive(false);
         }
     #endregion
     #region DamageEnemy
@@ -79,7 +79,6 @@ public class RogueRobotsManager : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            Debug.Log("exit");
             StopCoroutine(IAttacker());
             
         }

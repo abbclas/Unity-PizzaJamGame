@@ -18,11 +18,9 @@ public class Pickup : MonoBehaviour
     private void isfPressed(bool isfp)
     {
         isFP = isfp;
-        Debug.Log("isFP");
     }
     void OnTriggerStay(Collider other)
     {
-            Debug.Log(other.transform.tag);
             if(other.CompareTag("Player")  && isFP)
             {
                 
@@ -34,7 +32,6 @@ public class Pickup : MonoBehaviour
                         objButInst.SetActive(true);
                         objButInst.transform.SetParent(inventory.slots[i].transform);
                         
-                        Debug.Log("inst");
                         inventory.isFull[i] = true;
                         Destroy(this.gameObject);
                         

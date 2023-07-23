@@ -4,27 +4,33 @@ using UnityEngine;
 
 public class Blades : Attacking
 {
-
+    
+    public int NumberOfEnemiesKilled;
+    
     [SerializeField] private WeaponsSO BladeSO;
     [SerializeField] private float rotationAngle;
     public bool Inhand;
     private GameObject player;
     public Camera MainCamera;
-
+    private void Awake()
+    {
+        NumberOfEnemiesKilled = 0;
+        
+    }
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         transform.localEulerAngles = new Vector3(0, 90, 0);
     }
+    
     private void OnTriggerStay(Collider other)
     {
-        
-        if(other.GetComponent<RogueRobotsManager>() && isAttacking)
+        if(other.GetComponent<RogueRobotsManager>() && PlayerManager.Istance.playerState == PlayerManager.State.AttackingStart)
         {
-            Debug.Log("Hit" + other.transform);
-            Debug.Log("Hit + damage");
+            
             other.GetComponent<RogueRobotsManager>().TakeDamage(BladeSO._Damage);
             
+
         }
     }
     
@@ -40,6 +46,7 @@ public class Blades : Attacking
 
     void Update()
     {
+        
         if(this.transform.parent != null)
         {
             if(this.transform.parent.tag == "Player")

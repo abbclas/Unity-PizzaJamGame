@@ -27,11 +27,13 @@ public class Attacking : MonoBehaviour
     #endregion
     
     #region Variables
-        public bool isAttacking;
+        
         
         private float _Damage;
         
         private WeaponsSO thisweaponSO;
+        private GameObject weapon;
+        private float ra;
     #endregion
 ////////////////////////
     #region AttacksPublic
@@ -62,8 +64,23 @@ public class Attacking : MonoBehaviour
         }
     #endregion
     #region AttackPrivate
+        IEnumerator IAttacking()
+        {
+            PlayerManager.Istance.playerState = PlayerManager.State.AttackingStart;
+            weapon.transform.localEulerAngles += new Vector3(0, ra, 0);
+            yield return new WaitForSeconds(0.1f);
+            weapon.transform.localEulerAngles -= new Vector3(0,  2 * ra, 0);
+            yield return new WaitForSeconds(0.1f);
+            weapon.transform.localEulerAngles += new Vector3(0, ra, 0);
+            yield return new WaitForSeconds(0.1f);
+            PlayerManager.Istance.playerState = PlayerManager.State.AttackingFinish;
+            
+            
+        }
         private void AttackMelee(float AttackRotationAngle, GameObject Weapon, GameObject player, Camera camera)
         {
+            weapon = Weapon;
+            ra = AttackRotationAngle;
             
             Vector3 MousePoS = MousePos.Instance.mousePOS;
             
@@ -71,18 +88,16 @@ public class Attacking : MonoBehaviour
     
             if(Input.GetMouseButtonDown(0))
             {
+                StartCoroutine(IAttacking());
                 player.transform.LookAt(MousePoS);
-                Weapon.transform.localEulerAngles += new Vector3(0, AttackRotationAngle, 0);
-                Weapon.transform.localEulerAngles -= new Vector3(0,  2 * AttackRotationAngle, 0);
-                isAttacking = true;
-                PlayerManager.Istance.playerState = PlayerManager.State.AttackingStart;
+                
+                
     
             }
             if(Input.GetMouseButtonUp(0))
             {
                 
-                Weapon.transform.localEulerAngles += new Vector3(0, AttackRotationAngle, 0);
-                isAttacking = false;
+                
                 PlayerManager.Istance.playerState = PlayerManager.State.AttackingFinish;
             }
         }
@@ -93,13 +108,11 @@ public class Attacking : MonoBehaviour
                 //Do attack animation
                 //Do ranged attack
                 PlayerManager.Istance.playerState = PlayerManager.State.AttackingStart;
-                isAttacking = true;
     
             }
             if(Input.GetMouseButtonUp(0))
             {
                 PlayerManager.Istance.playerState = PlayerManager.State.AttackingFinish;
-                isAttacking = false;
             }
         }
     #endregion

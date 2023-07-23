@@ -22,9 +22,9 @@ public class HoldWeapon : MonoBehaviour
     }
     public void setInHand()
     {
-        if(player.childCount < 2)
+        if(player.childCount < 1)
         {
-            
+            Debug.Log("Please remember to set number of children that the player can have");
             weaponInst = Instantiate(weapon, player.transform.position, Quaternion.identity);
             weaponInst.transform.SetParent(player);
             

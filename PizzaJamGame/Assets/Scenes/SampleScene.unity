@@ -284,6 +284,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &223612279 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 529056795575938127, guid: 1196e63c9e3fec142b58da0e3d40dd5a, type: 3}
+  m_PrefabInstance: {fileID: 3346941232237990335}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &306295109 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2457825180057057442, guid: 399b620ab5e90d74a85f7a15e97096db, type: 3}
@@ -506,7 +517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnnemyPrefab: {fileID: 3824549728548375443, guid: ea7578a7aa0eff04bb7dbee598ae4e61, type: 3}
   pooledObjects: []
-  amountToPool: 1
+  amountToPool: 10
 --- !u!1 &1346328396 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2457825179852629704, guid: 399b620ab5e90d74a85f7a15e97096db, type: 3}
@@ -786,6 +797,14 @@ PrefabInstance:
       propertyPath: sliderHP
       value: 
       objectReference: {fileID: 1572887510}
+    - target: {fileID: 6579319882864913835, guid: b86d0aa82428f5d489587e6965721a66, type: 3}
+      propertyPath: LVLUISlider
+      value: 
+      objectReference: {fileID: 223612279}
+    - target: {fileID: 6579319882864913835, guid: b86d0aa82428f5d489587e6965721a66, type: 3}
+      propertyPath: LevelProgressCoEf
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6579319882864913841, guid: b86d0aa82428f5d489587e6965721a66, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -850,6 +869,10 @@ PrefabInstance:
       propertyPath: viewCamera
       value: 
       objectReference: {fileID: 9107488005239633628}
+    - target: {fileID: 6579319882864913852, guid: b86d0aa82428f5d489587e6965721a66, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6579319882864913854, guid: b86d0aa82428f5d489587e6965721a66, type: 3}
       propertyPath: m_Name
       value: Player
@@ -964,6 +987,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 822194394547060146, guid: 1196e63c9e3fec142b58da0e3d40dd5a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3346941231165087034, guid: 1196e63c9e3fec142b58da0e3d40dd5a, type: 3}
       propertyPath: m_Pivot.x
       value: 0

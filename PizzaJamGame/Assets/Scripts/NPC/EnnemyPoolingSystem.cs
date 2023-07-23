@@ -28,6 +28,7 @@ public class EnnemyPoolingSystem : MonoBehaviour
         for (int i=0; i < n; i++)
         {
             GameObject obj = Instantiate(EnnemyPrefab);
+            obj.GetComponent<RogueRobotsManager>().isDead = false;
             obj.SetActive(false);
             pooledObjects.Add(obj);
         }
