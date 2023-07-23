@@ -7,7 +7,12 @@ public class Blades : Attacking
 
     [SerializeField] private WeaponsSO BladeSO;
     [SerializeField] private float rotationAngle;
-    [SerializeField] private bool isInHand;
+    public bool Inhand;
+
+    private void Start()
+    {
+        
+    }
     private void OnTriggerStay(Collider other)
     {
         
@@ -23,7 +28,7 @@ public class Blades : Attacking
     
     private void SwingBlade()
     {
-        if(isInHand)
+        if(Inhand && !GameManager.Instance.isOnUI())
         {
             Attacking.Istance.AttackMelee(rotationAngle, this.gameObject);
         }
@@ -32,6 +37,21 @@ public class Blades : Attacking
 
     void Update()
     {
+        if(this.transform.parent != null)
+        {
+            if(this.transform.parent.tag == "Player")
+            {
+                Inhand = true;
+            }
+            else
+            {
+                Inhand = false;
+            }
+        }
+        else
+        {
+            Inhand = false;
+        }
         
         SwingBlade();
     }

@@ -51,7 +51,7 @@ MonoBehaviour:
   isAttacking: 0
   BladeSO: {fileID: 11400000, guid: 1996af7cb6706bf479f722a000bdf1b6, type: 2}
   rotationAngle: 45
-  isInHand: 0
+  Inhand: 0
 --- !u!65 &905370183
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -63,8 +63,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.6279714, y: 1, z: 1.4781623}
-  m_Center: {x: -1.2291099, y: 0, z: 0.12944458}
+  m_Size: {x: 3.5088165, y: 1, z: 1.6460065}
+  m_Center: {x: -1.2886916, y: 0, z: -0.012745311}
 --- !u!114 &5662699184927479969
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class WeaponsSO : ScriptableObject
     public float _MaxDamage;
     public float? _FireRate;
     public int _StackNum;
+    public bool _isInHand;
     //////////////////////////////
     public WeaponType _Type;
     
