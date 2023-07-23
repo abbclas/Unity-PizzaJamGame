@@ -19,10 +19,7 @@ public class PlayerManager : MonoBehaviour
         }
         
     }
-    void Awake()
-    {
-        _instance = this;
-    }
+    
     #endregion
     #region PickupAndDrop
     public delegate void IsFPressed(bool _isFpressed);
@@ -59,8 +56,30 @@ public class PlayerManager : MonoBehaviour
     }
     #endregion
     // Update is called once per frame
+    #region StateMachine
+    public enum State{
+        Idle,
+        AttackingStart,
+        AttackingFinish,
+        Moving
+    }
+    public State playerState;
+    public delegate void NewState(State _newState);
+    public static event NewState StateChanged;
+
+
+    #endregion
+    public void Awake()
+    {
+        _instance = this;
+        playerState = State.Idle;
+    }
     
-    void Update()
+    public void CalcAttackState()
+    {
+        
+    }
+    public void Update()
     {
         PickupItemPressed();
     }

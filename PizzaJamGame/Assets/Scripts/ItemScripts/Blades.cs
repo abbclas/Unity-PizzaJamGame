@@ -33,7 +33,7 @@ public class Blades : Attacking
     {
         if(Inhand && !GameManager.Instance.isOnUI())
         {
-            Attacking.Istance.AttackMelee(rotationAngle, this.gameObject, player, MainCamera);
+            Attacking.Istance.MeleeAttack(rotationAngle, this.gameObject, player, MainCamera);
         }
     }
     

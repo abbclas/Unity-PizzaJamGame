@@ -21,16 +21,26 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1))
-            MovementProcess();
+        
+        MovementProcess();
         
     }
 
 
     private void MovementProcess()
     {
-        MoveToPosition(GetPosition());
-        AnimateMovement();
+        if (Input.GetMouseButtonDown(1))
+            if(PlayerManager.Istance.playerState != PlayerManager.State.AttackingStart)
+            {
+                MoveToPosition(GetPosition());
+                AnimateMovement();
+                PlayerManager.Istance.playerState = PlayerManager.State.Moving;
+            }
+        if(PlayerManager.Istance.playerState == PlayerManager.State.AttackingStart && Input.GetKey(KeyCode.LeftShift))
+            MoveToPosition(this.transform.position);
+        
+        
+        
     }
 
 
