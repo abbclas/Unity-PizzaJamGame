@@ -7,10 +7,13 @@ public class RogueRobotsManager : MonoBehaviour
     
     [SerializeField]private EnemySO enemySO;
     public float HP;
+    [SerializeField] private float timeToAttack;
+    [SerializeField] private bool isHittingPlayer;
 
     void Awake()
     {
         HP = enemySO.MaxHP;
+        isHittingPlayer = false;
     }
     
     #region DamageAndLivingStatus
@@ -38,11 +41,35 @@ public class RogueRobotsManager : MonoBehaviour
         }
     #endregion
     #region DamageEnemy
-    private void OnTriggerStay(Collider other)
+    IEnumerator IAttacker()
+    {
+        
+            yield return new WaitForSeconds(timeToAttack);
+            if(isHittingPlayer)
+                PlayerManager.Istance.RecieveDamage(enemySO.DamageDealAmount);
+            
+    }
+    IEnumerator IWaiter()
+    {
+        yield return new WaitForSeconds(timeToAttack);
+    }
+    
+    private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         {
-            PlayerManager.Istance.RecieveDamage(enemySO.DamageDealAmount);
+            
+            isHittingPlayer = true;
+            StartCoroutine(IAttacker());
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            
+            isHittingPlayer = false;
+            
         }
     }
     #endregion

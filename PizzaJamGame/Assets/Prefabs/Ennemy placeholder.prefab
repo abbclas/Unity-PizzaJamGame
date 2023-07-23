@@ -167,3 +167,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySO: {fileID: 11400000, guid: 6e9a4df79e097b44cb1d4d6b8c6ab36a, type: 2}
   HP: 50
+  timeToAttack: 5
