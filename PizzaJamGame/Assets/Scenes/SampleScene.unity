@@ -631,6 +631,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1787394335 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4285608386882212522, guid: 1196e63c9e3fec142b58da0e3d40dd5a, type: 3}
+  m_PrefabInstance: {fileID: 3346941232237990335}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1820258182
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,6 +804,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6579319882864913835, guid: b86d0aa82428f5d489587e6965721a66, type: 3}
+      propertyPath: tmpText
+      value: 
+      objectReference: {fileID: 1787394335}
     - target: {fileID: 6579319882864913835, guid: b86d0aa82428f5d489587e6965721a66, type: 3}
       propertyPath: sliderHP
       value: 
