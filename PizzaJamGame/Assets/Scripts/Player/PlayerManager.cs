@@ -71,16 +71,38 @@ public class PlayerManager : MonoBehaviour
     #endregion
     public void Awake()
     {
+        HP = MaxHP;
         _instance = this;
         playerState = State.Idle;
     }
     
-    public void CalcAttackState()
-    {
-        
-    }
+    #region Existance
+        public void CalcHP()
+        {
+            if(HP <= 0)
+            {
+
+                HP = 0;
+                Die();
+            }
+                
+        }
+        public void RecieveDamage(float _damageAmount)
+        {
+            HP -= _damageAmount;
+        }
+        private void Die()
+        {
+            this.gameObject.SetActive(false);
+        }
+        private void HandleExistance()
+        {
+            CalcHP();
+        }
+    #endregion
     public void Update()
     {
         PickupItemPressed();
+        HandleExistance();
     }
 }
