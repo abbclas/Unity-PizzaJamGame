@@ -7,7 +7,7 @@ public class Blades : Attacking
 
     [SerializeField] private WeaponsSO BladeSO;
     [SerializeField] private float rotationAngle;
-    
+    [SerializeField] private bool isInHand;
     private void OnTriggerStay(Collider other)
     {
         
@@ -16,18 +16,23 @@ public class Blades : Attacking
             Debug.Log("Hit" + other.transform);
             Debug.Log("Hit + damage");
             other.GetComponent<RogueRobotsManager>().TakeDamage(BladeSO._Damage);
+            
         }
     }
     
-
+    
     private void SwingBlade()
     {
-        Attacking.Istance.AttackMelee(rotationAngle, this.gameObject);
+        if(isInHand)
+        {
+            Attacking.Istance.AttackMelee(rotationAngle, this.gameObject);
+        }
     }
     
 
     void Update()
     {
+        
         SwingBlade();
     }
 }

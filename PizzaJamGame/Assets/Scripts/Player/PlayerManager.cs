@@ -25,19 +25,41 @@ public class PlayerManager : MonoBehaviour
     }
     #endregion
     // Start is called before the first frame update
-
+    public delegate void IsFPressed(bool _isFpressed);
+    
+    public static event IsFPressed isFPressed;
     [SerializeField] private float HP;
     [SerializeField] private float MaxHP;
     [SerializeField] private int Level;
 
     void Start()
     {
+        
         HP = MaxHP;
     }
-
+    public bool isFpressed() {return true;} 
+    public void PickupItemPressed()
+    {
+        if(Input.GetKey(KeyCode.F))
+        {
+            if(isFPressed != null)
+            {
+                Debug.Log("isfpressed");
+                isFPressed(true);
+            }
+        }
+        if(Input.GetKeyUp(KeyCode.F))
+        {
+            if(isFPressed != null)
+            {
+                Debug.Log("isfpressed");
+                isFPressed(false);
+            }
+        }
+    }
     // Update is called once per frame
     void Update()
     {
-        
+        PickupItemPressed();
     }
 }
