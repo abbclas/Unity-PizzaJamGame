@@ -20,11 +20,12 @@ public class EnnemyGenerator : MonoBehaviour
     private float timer;
     [SerializeField] private float spawnDistanceRange;
     [SerializeField] private float actualHeight;
+    [SerializeField] private EnemySO enemySO;
 
     
     private void Awake()
     {
-
+        
         #region Exception
 
         if (spawningRate > 1)
@@ -64,6 +65,10 @@ public class EnnemyGenerator : MonoBehaviour
 
         if (newEnnemy != null)
         {
+            if(newEnnemy.GetComponent<RogueRobotsManager>().HP <= 0)
+            {
+                newEnnemy.GetComponent<RogueRobotsManager>().HP = enemySO.MaxHP;
+            }
             // The random position
             float randomAngle = Random.Range(0f, 2 * Mathf.PI);
             float randomX = playerPosition.position.x + spawnDistanceRange * Mathf.Cos(randomAngle);

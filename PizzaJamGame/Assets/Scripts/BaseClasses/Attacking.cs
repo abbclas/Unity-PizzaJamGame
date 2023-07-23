@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using CodeMonkey.Utils;
+using CodeMonkey;
 public class Attacking : MonoBehaviour
 {
     #region Singleton
@@ -32,18 +33,25 @@ public class Attacking : MonoBehaviour
     
     // Start is called before the first frame update
     
-    public void AttackMelee(float AttackRotationAngle, GameObject Weapon)
+    public void AttackMelee(float AttackRotationAngle, GameObject Weapon, GameObject player, Camera camera)
     {
+        
+        Vector3 MousePoS = MousePos.Instance.mousePOS;
+        
+        
+
         if(Input.GetMouseButtonDown(0))
         {
-            //Do attack animation
-            Weapon.transform.eulerAngles += new Vector3(0 ,0, AttackRotationAngle);
+            player.transform.LookAt(MousePoS);
+            Weapon.transform.localEulerAngles += new Vector3(0, AttackRotationAngle, 0);
+            Weapon.transform.localEulerAngles -= new Vector3(0,  2 * AttackRotationAngle, 0);
             isAttacking = true;
 
         }
         if(Input.GetMouseButtonUp(0))
         {
-            Weapon.transform.eulerAngles -= new Vector3(0 ,0, AttackRotationAngle);
+            
+            Weapon.transform.localEulerAngles += new Vector3(0, AttackRotationAngle, 0);
             isAttacking = false;
         }
     }

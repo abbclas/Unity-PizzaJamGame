@@ -8,10 +8,13 @@ public class Blades : Attacking
     [SerializeField] private WeaponsSO BladeSO;
     [SerializeField] private float rotationAngle;
     public bool Inhand;
+    private GameObject player;
+    public Camera MainCamera;
 
     private void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
+        transform.localEulerAngles = new Vector3(0, 90, 0);
     }
     private void OnTriggerStay(Collider other)
     {
@@ -30,7 +33,7 @@ public class Blades : Attacking
     {
         if(Inhand && !GameManager.Instance.isOnUI())
         {
-            Attacking.Istance.AttackMelee(rotationAngle, this.gameObject);
+            Attacking.Istance.AttackMelee(rotationAngle, this.gameObject, player, MainCamera);
         }
     }
     

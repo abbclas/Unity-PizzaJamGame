@@ -24,7 +24,7 @@ public class PlayerManager : MonoBehaviour
         _instance = this;
     }
     #endregion
-    // Start is called before the first frame update
+    #region PickupAndDrop
     public delegate void IsFPressed(bool _isFpressed);
     
     public static event IsFPressed isFPressed;
@@ -57,7 +57,9 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
+    #endregion
     // Update is called once per frame
+    
     void Update()
     {
         PickupItemPressed();

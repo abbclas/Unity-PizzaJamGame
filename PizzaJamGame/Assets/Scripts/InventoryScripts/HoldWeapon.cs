@@ -26,8 +26,8 @@ public class HoldWeapon : MonoBehaviour
         {
             
             weaponInst = Instantiate(weapon, player.transform.position, Quaternion.identity);
-            weaponInst.transform.rotation = Quaternion.identity;
             weaponInst.transform.SetParent(player);
+            
         }
         
 
